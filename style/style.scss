@@ -5,7 +5,7 @@ html{font-size: 62.5%;}
 h1{font-size: 3rem;}
 h2{font-size: 3.8rem;}
 h3{font-size: 1.5rem;}
-h4{font-size: 2.8rem;}
+h4{font-size: 1.4rem;}
 h5{font-size: 2rem;}
 p{font-size: 2rem;}
 a{text-decoration: none;}
@@ -21,7 +21,12 @@ $orange: hsl(14, 88%, 65%);
 body{
     background: linear-gradient(to bottom,$soft-violet,$violet);
     background-repeat: no-repeat;
-    font-family: 'Kumbh Sans', sans-serif;;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+}
+button{
+    border: none;
+    background: transparent;
 }
 hr{
     color: $grey; 
@@ -63,28 +68,60 @@ hr{
     align-items: flex-start;
     margin-right: auto;
     margin-bottom: 12rem;
+    width: 80%;
+    padding: 3rem 3vw;
 }
 .title{
     margin: 6rem 0rem 2rem 0rem;
     font-weight: 700;
 }
-.question{
+.question-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.question-text{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 35vw;
     h3{
         margin: 2rem 2rem 1rem 0rem;
-        cursor: pointer;
         color: $dark-blue;
     }
     h3:hover{color: $orange;}
     img{
         height: 8px;
         cursor: pointer;
-        margin: 1rem 10vw 0rem 0rem;
     }
 }
+.answer{
+    padding-right: 18rem;
+    margin-top: 1rem;
+    color: rgb(37, 37, 37);
+    display: none;
+    opacity: 0;
+}
+.show-answer{
+    display: flex;
+    animation: fade 1s forwards ease-out;
+}
+
+.rot-arrow{
+    transform: rotate(180deg);
+}
+@keyframes fade{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+
+
+
 
 
 @media screen and (max-width: 1000px){
@@ -111,9 +148,12 @@ hr{
     .questions{
         margin: 0rem auto;
         align-items: center;
-        padding: 3rem;
+        padding: 3rem 6vw;
         margin-bottom: 5rem;
         
+    }
+    .answer{
+        padding: 1rem 10rem 1rem 0rem;
     }
     .question{
         width: 100%;
@@ -124,9 +164,6 @@ hr{
             margin: 0rem;
             margin-top: 1rem;
         }
-    }
-    hr{
-        display: none;
     }
     
 }

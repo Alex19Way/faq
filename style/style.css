@@ -24,7 +24,7 @@ h3 {
 }
 
 h4 {
-  font-size: 2.8rem;
+  font-size: 1.4rem;
 }
 
 h5 {
@@ -44,6 +44,11 @@ body {
   background: linear-gradient(to bottom, #af67e9, #6565e7);
   background-repeat: no-repeat;
   font-family: 'Kumbh Sans', sans-serif;
+}
+
+button {
+  border: none;
+  background: transparent;
 }
 
 hr {
@@ -104,6 +109,8 @@ hr {
           align-items: flex-start;
   margin-right: auto;
   margin-bottom: 12rem;
+  width: 80%;
+  padding: 3rem 3vw;
 }
 
 .title {
@@ -111,7 +118,18 @@ hr {
   font-weight: 700;
 }
 
-.question {
+.question-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.question-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -121,23 +139,59 @@ hr {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 35vw;
 }
 
-.question h3 {
+.question-text h3 {
   margin: 2rem 2rem 1rem 0rem;
-  cursor: pointer;
   color: #1d1e35;
 }
 
-.question h3:hover {
+.question-text h3:hover {
   color: #f47c57;
 }
 
-.question img {
+.question-text img {
   height: 8px;
   cursor: pointer;
-  margin: 1rem 10vw 0rem 0rem;
+}
+
+.answer {
+  padding-right: 18rem;
+  margin-top: 1rem;
+  color: #252525;
+  display: none;
+  opacity: 0;
+}
+
+.show-answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: fade 1s forwards ease-out;
+          animation: fade 1s forwards ease-out;
+}
+
+.rot-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -172,8 +226,11 @@ hr {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 3rem;
+    padding: 3rem 6vw;
     margin-bottom: 5rem;
+  }
+  .answer {
+    padding: 1rem 10rem 1rem 0rem;
   }
   .question {
     width: 100%;
@@ -188,9 +245,6 @@ hr {
   .question img {
     margin: 0rem;
     margin-top: 1rem;
-  }
-  hr {
-    display: none;
   }
 }
 
